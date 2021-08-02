@@ -78,7 +78,7 @@ export default {
     this.GetContractors();
   },
   updated: function () {
-    //this.GetContractors();
+    this.GetContractors();
   },
   components: {
     AddContractorModal,
