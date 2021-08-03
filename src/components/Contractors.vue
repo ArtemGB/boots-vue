@@ -14,26 +14,37 @@
           <strong>Загрузка...</strong>
         </div>
       </template>
-      <template #cell(AddDeleteButtons)="data">
+      <template #cell(EditDeleteButtons)="data">
         <div>
           <b-button-group>
-            <b-button variant="info">Редактировать</b-button>
+            <b-button variant="info" v-on:click="$bvModal.show('edit-modal'+ data.item.Id)"
+              >Редактировать</b-button
+            >
             <b-button
               variant="danger"
               v-on:click="DeleteContractor(data.item.Id)"
               >Удалить</b-button
             >
           </b-button-group>
+          <EditContractorModal
+            v-bind:NameProp="data.item.Name"
+            v-bind:INNProp="data.item.Inn"
+            v-bind:KPPProp="data.item.Kpp"
+            v-bind:TypeProp="data.item.Type"
+            v-bind:IdProp="data.item.Id.toString()"
+            v-bind:FullNameProp="data.item.FullName"
+          />
         </div>
       </template>
     </b-table>
-     <b-button @click="$bvModal.show('add-modal')">Добавить котрагента</b-button>
-    <AddContractorModal/>
+    <b-button @click="$bvModal.show('add-modal')">Добавить котрагента</b-button>
+    <AddContractorModal />
   </div>
 </template>
 
 <script>
 import AddContractorModal from "./AddContractorModal.vue";
+import EditContractorModal from "./EditContractorModal.vue";
 
 export default {
   name: "Contractors",
@@ -65,7 +76,7 @@ export default {
           label: "КПП",
         },
         {
-          key: "AddDeleteButtons",
+          key: "EditDeleteButtons",
           label: "",
         },
       ],
@@ -82,9 +93,10 @@ export default {
   },
   components: {
     AddContractorModal,
+    EditContractorModal,
   },
   methods: {
-    Add: function(){
+    Add: function () {
       this.showAddModal = !this.showAddModal;
       console.log(this.showAddModal);
     },

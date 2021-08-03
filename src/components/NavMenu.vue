@@ -7,10 +7,10 @@
 
         <b-navbar-nav>
           <b-nav-item>
-            <router-link to="/" class="text-decoration-none text-dark font-weight-bold">Home</router-link>
+            <router-link to="/" class="text-decoration-none text-dark font-weight-bold">Главная</router-link>
           </b-nav-item>
           <b-nav-item>
-            <router-link to="/about" class="text-decoration-none text-dark font-weight-bold">about</router-link>
+            <router-link to="/about" class="text-decoration-none text-dark font-weight-bold">О странице</router-link>
           </b-nav-item>
           <b-nav-item>
             <router-link to="/contractors" class="text-decoration-none text-dark font-weight-bold">Контрагенты</router-link>
