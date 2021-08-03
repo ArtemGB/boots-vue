@@ -76,7 +76,6 @@
             class="mb-2"
             prepend="КПП"
             v-if="Contractor.Type == 'Legal'"
-            invalid-feedback="Заполните поле"
           >
             <b-form-input
               v-model="Contractor.KPP"
@@ -88,7 +87,9 @@
             }}</b-form-invalid-feedback>
           </b-input-group>
         </validation-provider>
-        <b-button id="submit-btn" type="submit" variant="primary">Добавить</b-button>
+        <b-button id="submit-btn" type="submit" variant="primary"
+          >Добавить</b-button
+        >
       </b-form>
     </validation-observer>
   </b-modal>
@@ -125,9 +126,10 @@ export default {
     getValidationState({ dirty, validated, valid = null }) {
       return dirty || validated ? valid : null;
     },
-    onSubmit(){
-      this.$refs['add-modal'].hide();
-    }
+    onSubmit() {
+      this.AddContractor();
+      this.$refs["add-modal"].hide();
+    },
   },
 };
 </script>
